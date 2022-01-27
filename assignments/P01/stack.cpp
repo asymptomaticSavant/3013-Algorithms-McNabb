@@ -36,13 +36,6 @@ private:
     int top;  // top of stack
     double threshHold = .85;
 
-    int maxSize = 0;              //max size the stack ever reached
-    int resizeTimes = 0;          //how many times the stack was resized(grown or reduced)
-    double fullThreshold = .85;   // ratio you go over to grow the stack(e.g. .85)
-    double shrinkThreshold = .15; //to shrink  ratio to go under to shrink the stack(e.g. .15) but not below size 10!
-    double growRatio = 2.0;       // how much to grow the stack(e.g. 2.0 = double the size)
-    double shrinkRatio = 0.5;     // how much to shrink the stack(e.g. .5 = half its size)
-
     // top = number of items in the stack + 1
     // size = array size
 
@@ -50,6 +43,14 @@ private:
     // (top + 1) / size
 
 public:
+    int touchySize = size;
+    int maxSize = 0;              //max size the stack ever reached
+    int resizeTimes = 0;          //how many times the stack was resized(grown or reduced)
+    double fullThreshold = .85;   // ratio you go over to grow the stack(e.g. .85)
+    double shrinkThreshold = .15; //to shrink  ratio to go under to shrink the stack(e.g. .15) but not below size 10!
+    double growRatio = 2.0;       // how much to grow the stack(e.g. 2.0 = double the size)
+    double shrinkRatio = 0.5;     // how much to shrink the stack(e.g. .5 = half its size)
+
     /**
   * ArrayStack
   *
@@ -231,6 +232,7 @@ public:
         delete[] A; // delete old array
 
         size = newSize; // save new size
+        touchySize = size;
 
         A = B; // reset array pointer
         resizeTimes++;
@@ -252,10 +254,10 @@ public:
  *      NULL
  */
     void checkResize() {
-        if (??>= fullThreshold) {
+        if (top/size >= fullThreshold) {
             ContainerGrow();
         }
-        else if (? ? <= shrinkThreshold) {
+        else if (top/size <= shrinkThreshold) {
             ContainerShrink();
         }
     }
@@ -286,6 +288,7 @@ public:
             delete[] A; // delete old array
 
             size = newSize; // save new size
+            touchySize = size;
 
             A = B; // reset array pointer
             resizeTimes++;

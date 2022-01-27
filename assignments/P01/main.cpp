@@ -30,11 +30,11 @@ int main()
 
 		if (temp % 2 == 0)
 		{
-			theStack.push(temp);
+			theStack.Push(temp);
 		}
 		else
 		{
-			theStack.pop();
+			theStack.Pop();
 		}
 
 	}
@@ -45,16 +45,16 @@ int main()
 	cout << "   CMPS 3013\n";
 	cout << "   Katherine C. McNabb\n\n";
 
-	cout << "   Config Params: " << theStack.params << '\n';
-	cout << "   Full Threshold: " << theStack.fullThresh << '\n';
-	cout << "   Shrink Threshold: " << theStack.shrinkThresh << '\n';
+	cout << "   Config Params:\n";
+	cout << "   Full Threshold: " << theStack.fullThreshold << '\n';
+	cout << "   Shrink Threshold: " << theStack.shrinkThreshold << '\n';
 	cout << "   Grow Ratio: " << theStack.growRatio << '\n';
 	cout << "   Shrink Ratio: " << theStack.shrinkRatio << '\n';
 
 	cout << "   Processed " << num1 << " of commands.\n";
 
 	cout << "   Max Stack Size: " << theStack.maxSize << '\n';
-	cout << "   End Stack Size: " << theStack.size << '\n';
+	cout << "   End Stack Size: " << theStack.touchySize << '\n';
 	cout << "   Stack Resized: " << theStack.resizeTimes << " times\n";
 
 	cout << "######################################################################\n";
@@ -75,16 +75,16 @@ int main()
 	outfile << "   CMPS 3013\n";
 	outfile << "   Katherine C. McNabb\n\n";
 
-	outfile << "   Config Params: " << theStack.params << '\n';
-	outfile << "   Full Threshold: " << theStack.fullThresh << '\n';
-	outfile << "   Shrink Threshold: " << theStack.shrinkThresh << '\n';
+	outfile << "   Config Params: \n";
+	outfile << "   Full Threshold: " << theStack.fullThreshold << '\n';
+	outfile << "   Shrink Threshold: " << theStack.shrinkThreshold << '\n';
 	outfile << "   Grow Ratio: " << theStack.growRatio << '\n';
 	outfile << "   Shrink Ratio: " << theStack.shrinkRatio << '\n';
 
 	outfile << "   Processed " << num1 << " of commands.\n";
 
 	outfile << "   Max Stack Size: " << theStack.maxSize << '\n';
-	outfile << "   End Stack Size: " << theStack.size << '\n';
+	outfile << "   End Stack Size: " << theStack.touchySize << '\n';
 	outfile << "   Stack Resized: " << theStack.resizeTimes << " times\n";
 
 	outfile << "######################################################################\n";
